@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RecetteController!
+{% endblock %}
+
+{% block body %}
+	<h1>Recette index</h1>
+	<table>
+    <thead>
+				<tr>
+					<th>Id</th>
+					<th>Nom</th>
+					<th>Prix</th>
+					<th>time</th>
+					<th>nombre_personne</th>
+					<th>difficult</th>
+					<th>liste</th>
+					<th>favoris</th>
+					<th>slug</th>
+					<th>CreateAt</th>
+					<th>updateAt</th>
+				</tr>
+			</thead>
+		{% for recette in recetteTableau %}
+			
+			<tbody>
+				<tr>
+					<td>{{recette.id}}</td>
+					<td>{{recette.nom}}</td>
+					<td>{{recette.prix}}</td>
+					<td>{{recette.time}}</td>
+					<td>{{recette.nombrePersonne}}</td>
+					<td>{{recette.difficult}}</td>
+					<td>{{recette.liste}}</td>
+					<td>{{recette.favoris ? 'favoris' : 'non favoris'}}</td>
+					<td>{{recette.slug}}</td>
+					<td>{{recette.createdAt|date("d/m/Y")}}</td>
+					<td>{{recette.updateAt|date("d/m/Y")}}</td>
+				</tr>
+			</tbody>
+		{% endfor %}
+
+
+	</table>
+{% endblock %}
